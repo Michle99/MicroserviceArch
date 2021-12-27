@@ -5,8 +5,8 @@ public class User {
 	private Integer id;
 	private String name;
 	private Integer age;
+	private Integer salary;
 	
-	Float salary;
 	private List<Address> addresses;
 	
 	public List<Address> getAddresses() {
@@ -38,5 +38,12 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Integer getSalary() {
+		return salary;
+	}
+	public void setSalary(Integer salary){
+		this.salary = salary;
 	}
 }
