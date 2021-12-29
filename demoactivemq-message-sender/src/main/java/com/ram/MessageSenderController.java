@@ -14,12 +14,12 @@ public class MessageSenderController {
     JmsTemplate jmsTemplate;
 
     @PostMapping("/sendmessage")
-    private void sendMessage(@RequestBody String message){
+    private void sendMessage(@RequestBody Product product){
             // Product product = new Product();
 			// product.setProductId(10);
 			// product.setName("Laptop");
 			// product.setQuantity( 10);
 
-            jmsTemplate.convertAndSend("orders", message);
+            jmsTemplate.convertAndSend("orders", product);
     }
 }
