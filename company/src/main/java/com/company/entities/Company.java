@@ -2,12 +2,16 @@ package com.company.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "company")
 public class Company {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -20,6 +24,17 @@ public class Company {
 	private String sector;
 	private String writeup;
 	
+	@OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+	private List<Board> boards;
+
+	public List<Board> getBoards() {
+		return boards;
+	}
+
+	public void setBoards(List<Board> boards) {
+		this.boards = boards;
+	}
+
 	public Long getCompanyId() {
 		return companyId;
 	}

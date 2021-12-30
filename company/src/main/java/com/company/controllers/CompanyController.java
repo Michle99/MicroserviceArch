@@ -21,6 +21,9 @@ public class CompanyController {
 	@Autowired
 	CompanyService companyService;
 	
+	
+
+
 	@PostMapping("/company")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	Company createCompany( @RequestBody Company company) throws Exception {
@@ -43,5 +46,8 @@ public class CompanyController {
 	void deleteUser(@PathVariable Integer id) {
 		companyService.deleteCompany(id);
 	}
+
+
+
 	
 }
