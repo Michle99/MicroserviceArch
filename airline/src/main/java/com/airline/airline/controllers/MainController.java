@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+// import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -71,16 +72,16 @@ public class MainController {
         return "welcome";
     }
 
-    // @GetMapping("/users")
-    // public String listUsers(Model model) {
-    //     List<Users> listUsers = userService.findAll();
-    // 	model.addAttribute("listUsers", listUsers);
+    @GetMapping("/users")
+    public String listUsers(Model model) {
+        List<User> listUsers = userService.findAllUser();
+    	model.addAttribute("listUsers", listUsers);
      
-    // 	return "users";
-    // }
+    	return "users";
+    }
 
 
-    /*
+    
     @GetMapping("/airport/new")
     public String showAddAirportPage(Model model) {
         model.addAttribute("airport", new Airport());
@@ -350,7 +351,7 @@ public class MainController {
         return "index";
     }
 
-    */
+    
 
 
 }

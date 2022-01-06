@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.Collection;
+import java.util.List;
 
 
 @Service
@@ -42,8 +43,8 @@ public class UserServiceImpl implements UserService {
     }
 
      @Override
-    public void findAllUser() {
-        userRepository.findAll();
+    public List<User> findAllUser() {
+        return userRepository.findAll();
         
     }
 }
