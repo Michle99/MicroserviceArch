@@ -46,7 +46,7 @@ public class MainController {
 
     @GetMapping("")
     public String showHomePage() {
-        return "index";
+        return "indexx";
     }
 
     @GetMapping("/signup")
@@ -346,10 +346,10 @@ public class MainController {
 
 
 
-    @GetMapping("fancy")
-    public String showLoginPage1(){
-        return "index";
-    }
+    // @GetMapping("fancy")
+    // public String showLoginPage1(){
+    //     return "index";
+    // }
 
     
 
