@@ -42,14 +42,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-            .antMatchers("/flights","/", "/flight/search","/flight/book/verify", "/flight/book/cancel", "/img/**").permitAll()
-            // .antMatchers( "/flight/book**", "/flight/book/new").hasRole("AGENT")
-            .antMatchers("/**").hasRole("ADMIN")
+            .antMatchers("/", "/signup", "/process_signup","/flight/search","/flight/book/verify", "/flight/book/cancel", "/img/**","/webjars/**").permitAll()
+            .antMatchers( "/flight/book**", "/flight/book/new").hasAnyAuthority("USER", "ADMIN")
+            .antMatchers("/**").hasAuthority("ADMIN")
             .anyRequest().authenticated()
             .and()
             .formLogin()
                 .usernameParameter("email")
-                .defaultSuccessUrl("/flights")
+                .defaultSuccessUrl("/flight/search")
                 .permitAll()
         .and()
         .logout().logoutSuccessUrl("/").permitAll();

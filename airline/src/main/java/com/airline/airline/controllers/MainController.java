@@ -330,11 +330,10 @@ public class MainController {
         return "flights";
     }
 
-    @GetMapping("passengers")
-    public String showPassengerList(@RequestParam long flightId, Model model){
-        List<Passenger> passengers = flightService.getFlightById(flightId).getPassengers();
-        model.addAttribute("passengers", passengers);
-        model.addAttribute("flight", flightService.getFlightById(flightId));
+    @GetMapping("/passengers")
+    public String showPassengerList(@RequestParam(defaultValue = "0") int pageNo, Model model){
+      model.addAttribute("passengers", passengerService.getAllPassengersPaged(pageNo));
+      model.addAttribute("currentPage", pageNo);
         return "passengers";
     }
 

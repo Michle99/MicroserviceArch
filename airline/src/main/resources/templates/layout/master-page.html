@@ -5,13 +5,13 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Aero Travel</title>
+        <title>Travel Space</title>
         <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.css" media="screen">
 
     </head>
     <body>
         <nav th:fragment="nav" class="navbar navbar-expand-lg navbar-dark bg-primary" style="margin-bottom: 20px">
-            <a class="navbar-brand" href="#">FTB</a>
+            <a class="navbar-brand" href="#">AirBook</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
                     aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +25,7 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <th:block sec:authorize access="hasRole('ROLE_ADMIN')">
+                    <th:block sec:authorize="hasAuthority('ADMIN')">
                         <li class="nav-item">
                             <a class="nav-link" href="/airports">Airports</a>
                         </li>
@@ -35,8 +35,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/flights">Flights</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/passengers">Passengers</a>
+                        </li>
                     </th:block>
-                    <th:block sec:authorize access="hasRole('ROLE_AGENT')">
+                    <th:block sec:authorize="hasAnyAuthority('USER', 'ADMIN')">
                         <li class="nav-item">
                             <a class="nav-link" href="/flight/book">Book Flight</a>
                         </li>
