@@ -42,8 +42,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-            .antMatchers("/", "/signup", "/process_signup","/flight/search","/flight/book/verify", "/flight/book/cancel", "/img/**","/webjars/**").permitAll()
-            .antMatchers( "/flight/book**", "/flight/book/new").hasAnyAuthority("USER", "ADMIN")
+            .antMatchers("/", "/signup","/about" ,"/process_signup","/flight/search","/flight/book/verify", "/flight/book/cancel", "/img/**","/webjars/**").permitAll()
+            .antMatchers( "/flight/book**", "/flight/book/new").hasAuthority("AGENT")
             .antMatchers("/**").hasAuthority("ADMIN")
             .anyRequest().authenticated()
             .and()

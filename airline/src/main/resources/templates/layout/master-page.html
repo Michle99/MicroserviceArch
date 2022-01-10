@@ -25,6 +25,11 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/about">About
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
                     <th:block sec:authorize="hasAuthority('ADMIN')">
                         <li class="nav-item">
                             <a class="nav-link" href="/airports">Airports</a>
@@ -39,7 +44,7 @@
                             <a class="nav-link" href="/passengers">Passengers</a>
                         </li>
                     </th:block>
-                    <th:block sec:authorize="hasAnyAuthority('USER', 'ADMIN')">
+                    <th:block sec:authorize="hasAuthority('AGENT')">
                         <li class="nav-item">
                             <a class="nav-link" href="/flight/book">Book Flight</a>
                         </li>

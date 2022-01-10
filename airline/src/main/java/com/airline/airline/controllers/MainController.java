@@ -44,7 +44,12 @@ public class MainController {
 
     @GetMapping("")
     public String showHomePage() {
-        return "indexx";
+        return "index";
+    }
+
+    @GetMapping("/about")
+    public String aboutPage(){
+        return "about";
     }
 
     @GetMapping("/signup")
