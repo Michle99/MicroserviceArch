@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: com.airline.airline.UserRepositoryTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.249 s <<< FAILURE! - in com.airline.airline.UserRepositoryTests
+testCreateUser  Time elapsed: 0.408 s  <<< ERROR!
+org.springframework.transaction.TransactionSystemException: Could not commit JPA transaction; nested exception is javax.persistence.RollbackException: Error while committing the transaction
+Caused by: javax.persistence.RollbackException: Error while committing the transaction
+Caused by: javax.validation.ConstraintViolationException: 
+Validation failed for classes [com.airline.airline.models.User] during update time for groups [javax.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='size must be between 8 and 2147483647', propertyPath=password, rootBeanClass=class com.airline.airline.models.User, messageTemplate='{javax.validation.constraints.Size.message}'}
+]
+
