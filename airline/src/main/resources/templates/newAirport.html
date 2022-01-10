@@ -2,8 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/master-page}">
+<head>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
 
 <body>
+<div th:insert="layout/master-page :: nav"></div>
 <th:block layout:fragment="content">
     <div class="row">
         <div class="row">
@@ -14,7 +20,7 @@
         </div>
     </div>
 
-    <form action="/airport/new" method="post" th:object="${airport}">
+    <form th:action="@{/airport/new}" method="post" th:object="${airport}">
         <div class="row">
 
 

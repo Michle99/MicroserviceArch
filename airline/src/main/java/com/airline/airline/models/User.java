@@ -38,12 +38,12 @@ public class User {
     @Size(min=8)
     private String password;
 
-
-    @ManyToMany(cascade=CascadeType.MERGE)
+    @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(
             name="users_roles",
-            joinColumns={@JoinColumn(name="USER_ID", referencedColumnName="ID")},
-            inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
+            joinColumns={@JoinColumn(name="users_id")},
+            inverseJoinColumns={@JoinColumn(name="roles_id")}
+            )
     private List<Role> roles;
 
     public Integer getId()

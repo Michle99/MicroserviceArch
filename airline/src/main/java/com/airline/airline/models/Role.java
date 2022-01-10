@@ -15,6 +15,11 @@ public class Role {
     @NotEmpty
     private String name;
 
+    public Role(){}
+    public Role(String name){
+        this.name = name;
+    }
+
     @ManyToMany(mappedBy="roles")
     private List<User> users;
 

@@ -11,9 +11,7 @@ import com.airline.airline.services.FlightService;
 import com.airline.airline.services.PassengerService;
 import com.airline.airline.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -69,30 +67,31 @@ public class MainController {
 
     @GetMapping("/welcome")
     public String showWelcomePage(){
-        return "welcome";
+        return "layout/master-page";
     }
 
-    @GetMapping("/users")
-    public String listUsers(Model model) {
-        List<User> listUsers = userService.findAllUser();
-    	model.addAttribute("listUsers", listUsers);
+    // @GetMapping("/users")
+    // public String listUsers(Model model) {
+    //     List<User> listUsers = userService.findAllUser();
+    // 	model.addAttribute("listUsers", listUsers);
      
-    	return "users";
-    }
+    // 	return "users";
+    // }
 
 
     
     @GetMapping("/airport/new")
     public String showAddAirportPage(Model model) {
-        model.addAttribute("airport", new Airport());
+        Airport airport = new Airport();
+        model.addAttribute("airport", airport);
         return "newAirport";
     }
 
     @PostMapping("/airport/new")
-    public String saveAirport(@Valid @ModelAttribute("airport") Airport airport, BindingResult bindingResult, Model model) {
+    public String saveAirport( Airport airport, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("errors", bindingResult.getAllErrors());
-            model.addAttribute("airport", new Airport());
+            model.addAttribute("airport", airport);
             return "newAirport";
         }
         airportService.saveAirport(airport);
